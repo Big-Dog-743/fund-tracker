@@ -1,0 +1,42 @@
+name: Update prices
+
+on:
+  schedule:
+    # 07:17 JST (米国株の前日終値確定後) / 21:17 JST (投信の当日基準価額公表後)
+    - cron: "17 22 * * *"
+    - cron: "17 12 * * 1-5"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - holdings.json
+      - scripts/fetch_prices.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch prices
+        run: python scripts/fetch_prices.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/prices.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "Update prices $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

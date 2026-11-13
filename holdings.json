@@ -1,0 +1,13 @@
+{
+  "_comment": "表示する銘柄。順番がグラフの色の割り当て順になる。投信は toushin-lib(投資信託協会)から、株式・為替は Yahoo Finance から取得する。",
+  "holdings": [
+    { "id": "rakuten_vti",      "name": "楽天・全米株式インデックス・ファンド",              "short": "楽天・VTI",              "type": "fund",  "isin": "JP90C000FHD2", "assoc": "9I312179" },
+    { "id": "rakuten_plus_ac",  "name": "楽天・プラス・オールカントリー株式インデックス・ファンド", "short": "楽天・プラス・オルカン", "type": "fund",  "isin": "JP90C000Q2W2", "assoc": "9I31123A" },
+    { "id": "j_growth",         "name": "年金積立 Jグロース",                                "short": "つみたてJグロース",      "type": "fund",  "isin": "JP90C00021F1", "assoc": "0231Q01A" },
+    { "id": "fidelity_us",      "name": "フィデリティ・米国優良株・ファンド",                "short": "フィデリティ米国優良株", "type": "fund",  "isin": "JP90C00035E4", "assoc": "32314984" },
+    { "id": "emaxis_ac",        "name": "eMAXIS Slim 全世界株式(オール・カントリー)",        "short": "オルカン(eMAXIS)",       "type": "fund",  "isin": "JP90C000H1T1", "assoc": "0331418A" },
+    { "id": "fangplus",         "name": "iFreeNEXT FANG+インデックス",                       "short": "FANG+",                  "type": "fund",  "isin": "JP90C000FZD4", "assoc": "04311181" },
+    { "id": "nintendo",         "name": "任天堂 (7974)",                                     "short": "任天堂",                 "type": "stock", "symbol": "7974.T", "currency": "JPY" },
+    { "id": "nvidia",           "name": "エヌビディア (NVDA)",                               "short": "エヌビディア",           "type": "stock", "symbol": "NVDA",   "currency": "USD" }
+  ]
+}
